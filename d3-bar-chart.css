@@ -1,0 +1,82 @@
+.chart line {
+    shape-rendering: crispEdges;
+}
+
+.chart text {
+    fill: #7a7b80;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.tick line,
+.xaxis-top path,
+.xaxis-bottom path {
+    stroke: #cececd;
+}
+
+.horizontal-grid line {
+    stroke: #f1f1f3;
+}
+
+.horizontal-grid path {
+    stroke: #cececd;
+}
+
+.vertical-grid line,
+.vertical-grid path {
+    stroke: #cececd;
+}
+
+.chart rect:hover {
+    stroke-width: 1px;
+    stroke: #02020c;
+}
+
+.chart line.average {
+    stroke: rgba(0, 0, 0, 0.3);
+    stroke-width: 2;
+    stroke-dasharray: 2 4;
+    fill: red;
+}
+
+.chart line.average-mouse-layer {
+    stroke: rgba(0, 0, 0, 0.01);
+    stroke-width: 4;
+}
+
+.bar-tooltip,
+.average-tooltip {
+    position: absolute;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #7a7b80;
+    width: 230px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.45) inset, 0 2px 3px 0 rgba(0, 0, 0, 0.45);
+}
+
+.bar-tooltip:not(.active),
+.average-tooltip:not(.active) {
+    display: none;
+}
+
+.bar-tooltip .tooltip-container,
+.average-tooltip .tooltip-container {
+    background-color: #fdfdfb;
+    border: 1px solid #cfcfd4;
+}
+
+.bar-tooltip .tooltip-card,
+.average-tooltip .tooltip-card {
+    margin: 10px 7px;
+}
+
+.bar-tooltip .value {
+    font-weight: bold;
+}
+
+.average-tooltip {
+    width: 110px;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>D3 Bar Chart Demo</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+        #chart-container {
+            width: 100%;
+            max-width: 12000px;
+            height: 600px;
+        }
+    </style>
+    <link rel="stylesheet" href="d3-bar-chart.css">
+</head>
+<body>
+    <div class="container">
+        <div id="chart-container"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.js"></script>
+    <script src="data.js"></script>
+    <script src="d3-bar-chart.js"></script>
+    <script>
+        var selector = "#chart-container";
+        var data = getData();
+        data = data.reverse();
+
+        var chart = new D3BarChart({
+            data: data,
+            selector: selector
+        });
+
+        chart.render();
+
+        var chartContainer = document.querySelector(selector);
+        window.addEventListener("resize", function() {
+            var child = chartContainer.lastElementChild;
+            while (child) {
+                chartContainer.removeChild(child);
+                child = chartContainer.lastElementChild;
+            }
+
+            chart.render();
+        });
+    </script>
+</body>
+</html>
