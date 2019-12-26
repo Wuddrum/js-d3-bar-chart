@@ -1,21 +1,6 @@
 function D3BarChart(options) {
   validateOptions(options);
 
-  var MONTHS = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-  ];
-
   var data = options.data;
   var selector = options.selector;
 
@@ -310,18 +295,11 @@ function D3BarChart(options) {
   }
 
   function getEntryWeekDateName(entry) {
-    var date = entry.weekDate.getDate();
-    var month = entry.weekDate.getMonth();
-    var year = entry.weekDate.getFullYear();
-
-    return MONTHS[month] + " " + date + ", " + year;
+    return entry.weekDateName;
   }
 
   function getEntryKey(entry) {
-    var midWeekDate = new Date(entry.weekDate.getTime());
-    midWeekDate.setDate(entry.weekDate.getDate() + 3);
-
-    return MONTHS[midWeekDate.getMonth()] + " " + midWeekDate.getFullYear();
+    return entry.monthDateName;
   }
 
   function validateOptions(options) {
