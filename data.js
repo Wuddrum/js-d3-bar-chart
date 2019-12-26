@@ -7,14 +7,34 @@ function getData() {
     var midWeekDate = new Date(weekDate.getTime());
     midWeekDate.setDate(weekDate.getDate() + 3);
 
+    var monthDateName = MONTHS[midWeekDate.getMonth()] + " " + midWeekDate.getFullYear();
+    var weekDateName = MONTHS[weekDate.getMonth()] + " " + weekDate.getDate() + ", " + weekDate.getFullYear();
+
     data.push({
       weekDate: weekDate,
-      records: entry.records
+      records: entry.records,
+      monthDateName: monthDateName,
+      weekDateName: weekDateName
     });
   }
 
   return data;
 }
+
+var MONTHS = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
 
 var preprocessedData2019 = [
   {
